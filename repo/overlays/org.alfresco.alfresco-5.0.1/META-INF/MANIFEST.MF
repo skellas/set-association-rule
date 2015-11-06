@@ -1,14 +1,15 @@
 Manifest-Version: 1.0
-Implementation-Vendor: Alfresco Software
 Implementation-Title: Alfresco Repository WAR Community
+Build-Date: 2015-04-10T11:23:03Z
 Implementation-Version: 5.0.1
-Implementation-Vendor-Id: org.alfresco
+Archiver-Version: Plexus Archiver
 Built-By: build
-Build-Jdk: 1.7.0_55
 Specification-Vendor: Alfresco Software
+Implementation-Vendor-Id: org.alfresco
 Specification-Title: Alfresco Repository WAR Community
+Class-Path: sar-repo-1.0-SNAPSHOT.amp
+Implementation-Vendor: Alfresco Software
+Build-Jdk: 1.7.0_55
 Created-By: Apache Maven 3.2.5
 Specification-Version: 5.0.1
-Build-Date: 2015-04-10T11:23:03Z
-Archiver-Version: Plexus Archiver
 

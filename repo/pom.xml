@@ -34,7 +34,7 @@
         <!-- Demonstrating the dependency / installation of the repo AMP developed in the 'repo-amp' module -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>repo-amp</artifactId>
+            <artifactId>sar-repo</artifactId>
             <version>${project.version}</version>
             <type>amp</type>
         </dependency>

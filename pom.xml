@@ -74,8 +74,8 @@
         </profile>
     </profiles>
   <modules>
-    <module>repo-amp</module>
-    <module>share-amp</module>
+    <module>sar-repo</module>
+    <module>sar-share</module>
     <module>repo</module>
     <module>solr-config</module>
     <module>share</module>

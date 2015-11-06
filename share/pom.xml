@@ -29,7 +29,7 @@
         <!-- Demonstrating the dependency / installation of the share AMP developed in the 'share-amp' module -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>share-amp</artifactId>
+            <artifactId>sar-share</artifactId>
             <version>${project.version}</version>
             <type>amp</type>
         </dependency>
