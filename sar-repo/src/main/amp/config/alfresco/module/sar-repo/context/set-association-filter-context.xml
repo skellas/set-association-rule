@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+<!--
+	Licensed to the Apache Software Foundation (ASF) under one or more
+	contributor license agreements.  See the NOTICE file distributed with
+	this work for additional information regarding copyright ownership.
+	The ASF licenses this file to You under the Apache License, Version 2.0
+	(the "License"); you may not use this file except in compliance with
+	the License.  You may obtain a copy of the License at
+	
+	http://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+-->
+<beans>
+
+	<bean id="set-associations-filter-constraints" class="com.ixxus.sar.action.constraint.SetAssociationRuleParameterConstraint" parent="action-constraint">
+		<property name="dictionaryService" ref="dictionaryService"/>
+		<property name="namespaceUris">
+			<list>
+				<value>http://www.alfresco.org/model/content/1.0</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="drg-set-association-value" class="com.ixxus.sar.action.executer.SetAssociationRuleActionExecuter" parent="action-executer">
+		<property name="publicAction">
+			<value>true</value>
+		</property>
+		<property name="nodeService">
+			<ref bean="NodeService"></ref>
+		</property>
+		<property name="dictionaryService">
+			<ref bean="dictionaryService"></ref>
+		</property>
+		<property name="ignoreLock">
+			<value>false</value>
+		</property>
+	</bean>
+
+	<!-- Registration of demo models -->
+	<bean id="com.ixxus.sar.dictionaryBootstrap" parent="dictionaryModelBootstrap">
+		<property name="models">
+			<list>
+				<value>alfresco/module/${project.artifactId}/model/content-model.xml</value>
+
+			</list>
+		</property>
+		<property name="labels">
+			<list>
+				<value>alfresco/module/${project.artifactId}/messages/model</value>
+				<value>alfresco/module/${project.artifactId}/messages/action-config</value>
+			</list>
+		</property>
+
+	</bean>
+</beans>

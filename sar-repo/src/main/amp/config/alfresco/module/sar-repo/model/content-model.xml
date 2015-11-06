@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="sar:contentModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+    <!-- Optional meta-data about the model -->
+    <description>Document Model for Set Association Rule</description>
+    <author>Seth Kellas</author>
+    <version>1.0</version>
+
+    <imports>
+        <!-- Import Alfresco Dictionary Definitions -->
+        <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
+        <!-- Import Alfresco Content Domain Model Definitions -->
+        <import uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+        <!-- Import Alfresco System Model Definitions -->
+        <import uri="http://www.alfresco.org/model/system/1.0" prefix="sys"/>
+    </imports>
+
+    <!-- Custom namespace for your domain -->
+    <namespaces>
+        <namespace uri="http://www.ixxus.com/sar/model/content/1.0" prefix="sar"/>
+    </namespaces>
+
+    <!-- ===============================================================================================================
+        Constraints, Types, and Aspects go here...
+        -->
+
+    <aspects>
+
+        <!-- aspect that contains assocation for content that can have an author -->
+        <aspect name="sar:relatedTo">
+            <title>Related To</title>
+            <associations>
+                <association name="sar:relatedToContent">
+                    <title>Is Related To Content</title>
+                    <source>
+                        <role>sar:sourceContentRelation</role>
+                        <mandatory>false</mandatory>
+                        <many>true</many>
+                    </source>
+                    <target>
+                        <class>cm:content</class>
+                        <role>sar:targetContentRelation</role>
+                        <mandatory>false</mandatory>
+                        <many>true</many>
+                    </target>
+                </association>
+                <association name="sar:relatedToFolder">
+                    <title>Is Related To Folder</title>
+                    <source>
+                        <role>sar:sourceFolderRelation</role>
+                        <mandatory>false</mandatory>
+                        <many>true</many>
+                    </source>
+                    <target>
+                        <class>cm:folder</class>
+                        <role>sar:targetFolderRelation</role>
+                        <mandatory>false</mandatory>
+                        <many>true</many>
+                    </target>
+                </association>
+            </associations>
+        </aspect>
+
+
+    </aspects>
+</model>
