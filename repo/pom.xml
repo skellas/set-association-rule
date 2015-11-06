@@ -83,7 +83,7 @@
                         <!-- Add / sort your AMPs here -->
                         <overlay>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>repo-amp</artifactId>
+                            <artifactId>sar-repo</artifactId>
                             <type>amp</type>
                         </overlay>
                         <!-- Uncomment if you are using SPP -->

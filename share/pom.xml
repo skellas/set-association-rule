@@ -69,7 +69,7 @@
                         <!-- Add / sort your AMPs here -->
                         <overlay>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>share-amp</artifactId>
+                            <artifactId>sar-share</artifactId>
                             <type>amp</type>
                         </overlay>
                         <!-- Uncomment if you are using RM module -->

@@ -1,12 +1,10 @@
 package com.ixxus.sar.action.executer;
 
+import org.alfresco.repo.action.ParameterDefinitionImpl;
 import org.alfresco.repo.action.executer.ActionExecuterAbstractBase;
 import org.alfresco.service.cmr.action.Action;
 import org.alfresco.service.cmr.action.ParameterDefinition;
-import org.alfresco.service.cmr.dictionary.AspectDefinition;
-import org.alfresco.service.cmr.dictionary.AssociationDefinition;
-import org.alfresco.service.cmr.dictionary.DictionaryService;
-import org.alfresco.service.cmr.dictionary.TypeDefinition;
+import org.alfresco.service.cmr.dictionary.*;
 import org.alfresco.service.cmr.repository.NodeRef;
 import org.alfresco.service.cmr.repository.NodeService;
 import org.alfresco.service.namespace.QName;
@@ -101,6 +99,14 @@ public class SetAssociationRuleActionExecuter extends ActionExecuterAbstractBase
     }
 
     @Override protected void addParameterDefinitions(List<ParameterDefinition> paramList) {
-
+        paramList.add(new ParameterDefinitionImpl(PARAM_ASSOCIATION_NAME, DataTypeDefinition.QNAME, false,
+                this.getParamDisplayLabel(PARAM_ASSOCIATION_NAME), false, "set-association-rule-constraints"));
+        paramList.add(new ParameterDefinitionImpl(PARAM_ASSOCIATION_VALUE, DataTypeDefinition.NODE_REF, false,
+                this.getParamDisplayLabel(PARAM_ASSOCIATION_VALUE), true));
     }
+
+    public void setNodeService(NodeService nodeService) {
+        this.nodeService = nodeService;
+    }
+    public void setDictionaryService(DictionaryService dictionaryService) { this.dictionaryService = dictionaryService;}
 }

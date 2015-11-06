@@ -1,0 +1,16 @@
+<extension>
+  <modules>
+    <module>
+      <id>Ixxus - Set Association Value</id>
+      <description>Allows for the creation of Folder Rules to set the values of associations on content</description>
+      <auto-deploy>true</auto-deploy>
+      <customizations>
+        <customization>
+          <targetPackageRoot>org.alfresco.components.rules
+          </targetPackageRoot>
+          <sourcePackageRoot>com.ixxus.sar.rules</sourcePackageRoot>
+        </customization>
+      </customizations>
+    </module>
+  </modules>
+</extension>

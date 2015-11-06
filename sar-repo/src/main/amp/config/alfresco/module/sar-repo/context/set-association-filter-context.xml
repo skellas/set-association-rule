@@ -18,16 +18,17 @@
 -->
 <beans>
 
-	<bean id="set-associations-filter-constraints" class="com.ixxus.sar.action.constraint.SetAssociationRuleParameterConstraint" parent="action-constraint">
+	<bean id="set-association-rule-constraints" class="com.ixxus.sar.action.constraint.SetAssociationRuleParameterConstraint" parent="action-constraint">
 		<property name="dictionaryService" ref="dictionaryService"/>
 		<property name="namespaceUris">
 			<list>
-				<value>http://www.alfresco.org/model/content/1.0</value>
+                <value>http://www.alfresco.org/model/content/1.0</value>
+                <value>http://www.ixxus.com/sar/model/content/1.0</value>
 			</list>
 		</property>
 	</bean>
 
-	<bean id="drg-set-association-value" class="com.ixxus.sar.action.executer.SetAssociationRuleActionExecuter" parent="action-executer">
+	<bean id="set-association-rule" class="com.ixxus.sar.action.executer.SetAssociationRuleActionExecuter" parent="action-executer">
 		<property name="publicAction">
 			<value>true</value>
 		</property>
