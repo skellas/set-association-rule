@@ -1,0 +1,13 @@
+target/
+*.log
+*.log.*
+.project
+.settings/
+alf_data_dev/
+.classpath
+.idea/
+*.iml
+overlays/
+.vagrant/
+runDebug.bat
+*.lnk
