@@ -22,7 +22,10 @@
 		<property name="dictionaryService" ref="dictionaryService"/>
 		<property name="namespaceUris">
 			<list>
+                <!-- Basic CM associations aren't too fun.
+                    Use the SAR association for testing, it's much cooler.
                 <value>http://www.alfresco.org/model/content/1.0</value>
+                -->
                 <value>http://www.ixxus.com/sar/model/content/1.0</value>
 			</list>
 		</property>
