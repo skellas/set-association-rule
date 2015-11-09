@@ -7,7 +7,8 @@ Built-By: build
 Specification-Vendor: Alfresco Software
 Implementation-Vendor-Id: org.alfresco
 Specification-Title: Alfresco Repository WAR Community
-Class-Path: sar-repo-1.0-SNAPSHOT.amp
+Class-Path: sar-repo-1.0-SNAPSHOT.amp mockito-all-1.10.8.jar commons-l
+ ogging-1.2.jar assertj-core-3.2.0.jar
 Implementation-Vendor: Alfresco Software
 Build-Jdk: 1.7.0_55
 Created-By: Apache Maven 3.2.5

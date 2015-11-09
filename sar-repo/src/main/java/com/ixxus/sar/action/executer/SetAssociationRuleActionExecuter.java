@@ -87,7 +87,10 @@ public class SetAssociationRuleActionExecuter extends ActionExecuterAbstractBase
                 for (NodeRef nodeToAssociate : nodesToAssociate) {
                     if (nodeService.getType(nodeToAssociate).equals(targetNodeType)) {
                         LOGGER.debug("Creating Association to NodeRef :" + nodeToAssociate.toString());
-                        nodeService.createAssociation(actionedUponNodeRef, nodeToAssociate, associationName);
+                        if (associationExists(actionedUponNodeRef, associationName, nodeToAssociate))
+                            LOGGER.warn(actionedUponNodeRef.toString() + " is already associated to " + nodesToAssociate.toString());
+                        else
+                            nodeService.createAssociation(actionedUponNodeRef, nodeToAssociate, associationName);
                     } else {
                         LOGGER.warn("Target Node " + nodeToAssociate.toString() + " is not of the proper type for this rule");
                     }
@@ -103,6 +106,14 @@ public class SetAssociationRuleActionExecuter extends ActionExecuterAbstractBase
                 this.getParamDisplayLabel(PARAM_ASSOCIATION_NAME), false, "set-association-rule-constraints"));
         paramList.add(new ParameterDefinitionImpl(PARAM_ASSOCIATION_VALUE, DataTypeDefinition.NODE_REF, false,
                 this.getParamDisplayLabel(PARAM_ASSOCIATION_VALUE), true));
+    }
+
+    private boolean associationExists(NodeRef source, QName assocType, NodeRef target) {
+        return nodeService.getTargetAssocs(source, assocType)
+                .stream()
+                .filter(associationRef -> associationRef.getTargetRef().toString().equals(target.toString()))
+                .findFirst()
+                .isPresent();
     }
 
     public void setNodeService(NodeService nodeService) {
