@@ -98,7 +98,6 @@ if (typeof Ixxus == "undefined" || !Ixxus)
                         };
 
                         var constraintOptions = this._getConstraintValues(paramDef, ruleConfig);
-                        console.log(constraintOptions);
                         for (var i = 0, l = constraintOptions.length; i < l; i++)
                         {
                             constraintOption = constraintOptions[i];
@@ -162,6 +161,7 @@ if (typeof Ixxus == "undefined" || !Ixxus)
                             {
                                 displayMode: "items",
                                 multipleSelectMode: true,
+                                // TODO: figure out how to parameterize this field
                                 //startLocation: "/app:company_home/st:sites/cm:taxonomy/cm:documentLibrary",
                                 rootNode: "{sitehomes}"
                             },

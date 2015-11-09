@@ -11,8 +11,8 @@ import java.util.*;
  * Created by Ixxus on 11/6/2015.
  */
 public class SetAssociationRuleParameterConstraint extends BaseParameterConstraint{
-    public static final String NAME = "set-association-rule";
 
+    protected String name;
     private DictionaryService dictionaryService;
     private List<String> namespaceUris;
 
@@ -46,4 +46,6 @@ public class SetAssociationRuleParameterConstraint extends BaseParameterConstrai
     public void setNamespaceUris(List<String> namespaceUris) {
         this.namespaceUris = namespaceUris;
     }
+    public void setName(String name) { this.name = name; }
+    public String getName() { return this.name; }
 }

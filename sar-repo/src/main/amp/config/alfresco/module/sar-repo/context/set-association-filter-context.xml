@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
 <!--
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
 	Licensed to the Apache Software Foundation (ASF) under one or more
 	contributor license agreements.  See the NOTICE file distributed with
 	this work for additional information regarding copyright ownership.
@@ -16,21 +16,44 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 -->
-<beans>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.springframework.org/schema/util
+                           http://www.springframework.org/schema/util/spring-util-2.0.xsd">
 
-	<bean id="set-association-rule-constraints" class="com.ixxus.sar.action.constraint.SetAssociationRuleParameterConstraint" parent="action-constraint">
+	<bean id="set-association-rule-constraints" abstract="true" class="com.ixxus.sar.action.constraint.SetAssociationRuleParameterConstraint" parent="action-constraint">
 		<property name="dictionaryService" ref="dictionaryService"/>
+        <property name="name"><value>set-association-rule-constraints</value></property>
 		<property name="namespaceUris">
 			<list>
-                <!-- Basic CM associations aren't too fun.
-                    Use the SAR association for testing, it's much cooler.
-                <value>http://www.alfresco.org/model/content/1.0</value>
+                <!--
+                 Add in the Set Association Rule content model
+                 namespace URI here. This is for our demo purposes
+                 though I guess it can be used in real life examples.
                 -->
                 <value>http://www.ixxus.com/sar/model/content/1.0</value>
 			</list>
 		</property>
 	</bean>
 
+    <!--
+                Create a bean similar to the one below in order to extends the
+                list of namespaces that are visible in the DropDown list of
+                the Set Association Rule options.
+                If you don't want to have the SAR namespace exposed, remove
+                the merge="true" flag from the <list/> node below.
+
+	<bean id="additional-association-rule-constraints" parent="set-association-rule-constraints">
+        <property name="name"><value>set-association-rule-constraints</value></property>
+		<property name="namespaceUris">
+			<list merge="true">
+				<value>http://www.alfresco.org/model/content/1.0</value>
+			</list>
+		</property>
+	</bean>
+	-->
 	<bean id="set-association-rule" class="com.ixxus.sar.action.executer.SetAssociationRuleActionExecuter" parent="action-executer">
 		<property name="publicAction">
 			<value>true</value>
